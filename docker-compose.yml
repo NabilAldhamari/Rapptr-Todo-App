@@ -15,7 +15,6 @@ services:
     container_name: todo-api
     build:
       context: ./
-      target: production
       dockerfile: Dockerfile
     image: todo-api
     depends_on:

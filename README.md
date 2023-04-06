@@ -24,11 +24,11 @@ To run the unit tests for the project, simply run `npm test` after installing th
 ### Login:
 
 POST http://localhost:8080/users/login
-username: nabil
-password: 123123
+- username: nabil
+- password: 123123
 
 Use the authorization token for all subsequent requests in the Authorization header, for example:
-Authorization: Bearer {token}
+`Authorization: Bearer {token}`
 
 
 ### User Endpoints (requires authentication):
@@ -46,7 +46,7 @@ Authorization: Bearer {token}
 
 - Get a specific todo:
   GET `localhost:8080/todos/{id}`
-
+  
 - Create a new todo:
   POST `localhost:8080/todos` with the following body parameters:
     - title
@@ -58,3 +58,6 @@ Authorization: Bearer {token}
     - title
     - description
     - completed (1 or 0)
+
+- Delete a specific todo:
+  DEL `localhost:8080/todos/{id}`

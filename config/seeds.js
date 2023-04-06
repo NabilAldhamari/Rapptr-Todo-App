@@ -1,6 +1,7 @@
 const { PrismaClient } = require('@prisma/client')
 const Todo = require('../app/models/Todo');
 const TodoRepository = require('../app/models/TodoRepository');
+const crypto = require('crypto');
 
 const User = require('../app/models/User');
 const UserRepository = require('../app/models/UserRepository');
@@ -23,29 +24,29 @@ async function seedDatabase() {
       completed: 0,
     });
 
-    await todoRepository.create(todo1).then(todo => {
+    todoRepository.create(todo1).then(todo => {
       console.log("[+] Todo created successfully: " + todo.getTitle());
     }).catch(err => {
       console.log("[x] Error writing todo: " + err);
     });
 
-    await todoRepository.create(todo2).then(todo => {
+    todoRepository.create(todo2).then(todo => {
       console.log("[+] Todo created successfully: " + todo.getTitle());
     }).catch(err => {
       console.log("[x] Error writing todo: " + err);
     });
 
     const userRepository = new UserRepository(new PrismaClient());
-    const user = new User({
+    const user1 = new User({
       id: 1,
       username: 'nabil',
-      password: '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e',
+      password: crypto.createHash('sha256').update("123123").digest('hex'),
     });
 
-    await userRepository.create(user).then(todo => {
+    userRepository.create(user1).then(user => {
       console.log("[+] User created successfully: " + user.getUsername());
     }).catch(err => {
-      console.log("[x] Error writing todo: " + err);
+      console.log("[x] Error writing user: " + err.messge);
     });
 
     console.log('Database seeded successfully!');

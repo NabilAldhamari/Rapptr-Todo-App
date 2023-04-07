@@ -1,28 +1,16 @@
-version: '3.8'
+version: "3.3"
 services:
-  db:
-    image: mysql:8.0
-    restart: always
-    environment:
-      - MYSQL_DATABASE=todo
-      - MYSQL_ROOT_PASSWORD=wBtpCV8N5DvVddyD
-    ports:
-      - '3306:3306'
-    volumes:
-      - db:/var/lib/mysql
-      - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
   api:
+    depends_on:
+      - db
     container_name: todo-api
     build:
       context: ./
       dockerfile: Dockerfile
     image: todo-api
-    depends_on:
-      - db
     ports:
-      - 8080:8080
+      - 8888:8888
     environment:
-      NODE_ENV: production
       DB_HOST: db
       DB_PORT: 3306
       DB_USER: root
@@ -34,6 +22,17 @@ services:
       - db
     volumes:
       - ./:/src
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: wBtpCV8N5DvVddyD
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
   db:
     driver: local

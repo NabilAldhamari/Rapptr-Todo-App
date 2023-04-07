@@ -16,17 +16,11 @@ COPY . .
 # Initialize Prisma
 RUN npx prisma init
 
-# Pull the database schema
-RUN npx prisma db pull
-
 # Generate the Prisma client
 RUN npx prisma generate
 
-# Run the database seeder
-RUN node ./config/seeds.js
-
 # Expose port 8080 for the application
-EXPOSE 8080
+EXPOSE 8888
 
 # Set the NODE_ENV environment variable
 ENV NODE_ENV production

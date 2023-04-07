@@ -5,7 +5,7 @@ CREATE TABLE `todo`.`todo` (
   `completed` INT NULL DEFAULT 0,
   `deleted` INT NULL DEFAULT 0,
   `createdAt` DATE NULL DEFAULT NULL,
-  `updateAt` DATE NULL DEFAULT NULL,
+  `updatedAt` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`));
 
 INSERT INTO `todo`.`todo` (`id`, `title`, `description`, `completed`, `deleted`, `createdAt`, `updatedAt`) VALUES

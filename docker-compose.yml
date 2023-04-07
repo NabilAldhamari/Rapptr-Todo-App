@@ -23,16 +23,17 @@ services:
     volumes:
       - ./:/src
   db:
-    image: mysql:latest
+    image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: todo
-      MYSQL_ROOT_PASSWORD: wBtpCV8N5DvVddyD
+      MYSQL_DATABASE: 'todo'
+      MYSQL_ROOT_PASSWORD: 'wBtpCV8N5DvVddyD'
     ports:
       - '3306:3306'
+    expose:
+      - '3306'
     volumes:
-      - db:/var/lib/mysql
+      - my-db:/var/lib/mysql
       - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
-  db:
-    driver: local
+  my-db:

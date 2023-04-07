@@ -67,7 +67,7 @@ class TodoRepository {
           title: todo.getTitle(),
           description: todo.getDescription(),
           completed: todo.isCompleted(),
-          updateAt: new Date(),
+          updatedAt: new Date(),
           deleted: parseInt(todo.isDeleted())
         },
       });
@@ -88,7 +88,7 @@ class TodoRepository {
         },
         data: {
           deleted: 1,
-          updateAt: new Date()
+          updatedAt: new Date()
         },
       });
 

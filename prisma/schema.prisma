@@ -14,7 +14,7 @@ model todo {
   completed   Int?      @default(0)
   deleted     Int?      @default(0)
   createdAt   DateTime? @db.Date
-  updateAt    DateTime? @db.Date
+  updatedAt   DateTime? @db.Date
 }
 
 model user {

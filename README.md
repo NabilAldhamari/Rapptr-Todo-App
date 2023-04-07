@@ -10,8 +10,7 @@ The project was built to abide by the following requirements:
 The environment is dockerized and consists of a MySQL service running alongside the todo-api service. To run the environment, follow these steps:
 1. Clone the repository to your local machine.
 2. Navigate to the project folder.
-3. Run `docker-compose up` in your favorite terminal.
-
+3. Run `docker-compose up --build --force-recreate` in your favorite terminal (*if you encounter any issues try building the images before running the containers*).
 ## System Tests
 
 If installing locally, make sure you install all the dependencies by running `npm install` first.

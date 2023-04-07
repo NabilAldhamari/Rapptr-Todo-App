@@ -46,22 +46,23 @@ To login you need to send a
 - Create a new todo:
   `POST http://localhost:8888/todos` with the following body parameters:
 
-  | Field       	| Type   	| Values 	|
+| Field       	| Type   	| Values 	|
 |-------------	|--------	|--------	|
 | title       	| string 	|        	|
 | description 	| string 	|        	|
 | completed   	| int    	| [0,1]  	|
-
+-------------------------------------
 
 - Update an existing todo:
   `PUT http://localhost:8888/todos/{id}` with **ANY** of the following body parameters:
 
-  | Field       	| Type   	| Values 	|
+| Field       	| Type   	| Values 	|
 |-------------	|--------	|--------	|
 | title       	| string 	|        	|
 | description 	| string 	|        	|
 | completed   	| int    	| [0,1]  	|
 | deleted     	| int    	| [0,1]  	|
+-------------------------------------
 
 - Delete a specific todo:
   `DEL http://localhost:8888/todos/{id}`
